@@ -1,51 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dorit Talia Stein - Academic Website</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #f0f0f0;
             color: #333;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        header {
-            text-align: center;
-            padding: 50px 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: #222;
-        }
-        header h2 {
-            margin: 10px 0;
-            font-weight: normal;
-            color: #666;
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        section h3 {
-            font-size: 1.5em;
-            color: #444;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-        section p {
-            font-size: 1em;
             line-height: 1.6;
         }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            color: #222;
+        }
+
+        header h2 {
+            margin: 5px 0;
+            font-weight: normal;
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        nav {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007acc;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #005899;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h3 {
+            font-size: 1.8em;
+            color: #444;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section ul,
+        section p {
+            padding-left: 20px;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
         footer {
             text-align: center;
             padding: 20px 0;
@@ -54,12 +112,40 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
+            <!-- Reference the uploaded profile picture directly from the root -->
+            <img src="headshot - edited.png" alt="Dorit Talia Stein">
             <h1>Dorit Talia Stein</h1>
             <h2>PhD Candidate in Global Health and Health Systems</h2>
+            <div class="social-icons">
+                <!-- Reference the uploaded CV PDF directly from the root -->
+                <a href="Dorit Stein_CV_github.pdf" download>
+                    <img src="https://img.icons8.com/ios-filled/50/000000/resume.png" alt="CV">
+                </a>
+                <!-- Add your actual profile links -->
+                <a href="https://x.com/dorittalia" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/twitter.png" alt="Twitter">
+                </a>
+                <a href="https://www.linkedin.com/in/doritstein/" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/dorittalia" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub">
+                </a>
+                <a href="https://scholar.google.com/citations?user=Aj2N1qYAAAAJ&hl=en" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/google-scholar.png" alt="Google Scholar">
+                </a>
+            </div>
         </header>
+        <nav>
+            <a href="#bio">About Me</a>
+            <a href="#research">Research Interests</a>
+            <a href="#publications">Publications</a>
+            <a href="#contact">Contact</a>
+        </nav>
         <section id="bio">
             <h3>About Me</h3>
             <p>Welcome to my academic website. I am currently pursuing a PhD in Population Health Sciences with a focus on Global Health Systems. My research interests include healthcare systems, epidemiology, and health policy analysis.</p>
@@ -80,7 +166,7 @@
             <ul>
                 <li>Stein, D.T., et al. (Year). Title of the publication. <em>Journal Name</em>, Volume(Issue), Pages.</li>
                 <li>Stein, D.T., et al. (Year). Title of the publication. <em>Journal Name</em>, Volume(Issue), Pages.</li>
-                <!-- Add more publications as needed -->
+                <!-- Add more publications if needed -->
             </ul>
         </section>
         <section id="contact">
@@ -92,4 +178,5 @@
         </footer>
     </div>
 </body>
+
 </html>
