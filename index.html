@@ -16,38 +16,66 @@
         }
 
         .container {
-            width: 90%;
-            max-width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        header {
-            text-align: center;
-            padding: 20px 0;
+        .profile {
+            flex: 1 1 25%;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        header img {
+        .content {
+            flex: 1 1 75%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .profile img {
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            max-width: 150px;
+            height: auto;
             display: block;
-            margin: 0 auto 20px auto;
+            margin: 0 auto;
         }
 
-        header h1 {
-            margin: 0;
+        .profile h1 {
+            text-align: center;
             font-size: 2.2em;
             color: #222;
+            margin-top: 10px;
         }
 
-        header h2 {
-            margin: 5px 0;
+        .profile h2 {
+            text-align: center;
             font-weight: normal;
             color: #666;
             font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
         }
 
         nav {
@@ -88,34 +116,19 @@
             margin-bottom: 10px;
         }
 
-        .social-icons {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            margin: 0 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .social-icons img {
-            width: 30px;
-            height: 30px;
-        }
-
         footer {
             text-align: center;
             padding: 20px 0;
             color: #777;
             border-top: 1px solid #ddd;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <header>
+        <div class="profile">
             <!-- Reference the uploaded profile picture directly from the root -->
             <img src="headshot - edited.png" alt="Dorit Talia Stein">
             <h1>Dorit Talia Stein</h1>
@@ -136,47 +149,49 @@
                     <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub">
                 </a>
                 <a href="https://scholar.google.com/citations?user=Aj2N1qYAAAAJ&hl=en" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/google-scholar.png" alt="Google Scholar">
+                    <img src="https://img.icons8.com/ios-filled/50/4a90e2/google-scholar.png" alt="Google Scholar">
                 </a>
             </div>
-        </header>
-        <nav>
-            <a href="#bio">About Me</a>
-            <a href="#research">Research Interests</a>
-            <a href="#publications">Publications</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <section id="bio">
-            <h3>About Me</h3>
-            <p>Welcome to my academic website. I am currently pursuing a PhD in Population Health Sciences with a focus on Global Health Systems. My research interests include healthcare systems, epidemiology, and health policy analysis.</p>
-        </section>
-        <section id="research">
-            <h3>Research Interests</h3>
-            <p>My research interests encompass various aspects of healthcare and global health systems, including:</p>
-            <ul>
-                <li>Healthcare Systems Analysis</li>
-                <li>Epidemiology and Public Health</li>
-                <li>Health Policy Evaluation</li>
-                <li>Global Health Equity</li>
-            </ul>
-        </section>
-        <section id="publications">
-            <h3>Publications</h3>
-            <p>Here is a list of my recent publications:</p>
-            <ul>
-                <li>Stein, D.T., et al. (Year). Title of the publication. <em>Journal Name</em>, Volume(Issue), Pages.</li>
-                <li>Stein, D.T., et al. (Year). Title of the publication. <em>Journal Name</em>, Volume(Issue), Pages.</li>
-                <!-- Add more publications if needed -->
-            </ul>
-        </section>
-        <section id="contact">
-            <h3>Contact Information</h3>
-            <p>If you have any questions, feel free to reach out to me via email: <a href="mailto:doritstein@example.com">doritstein@example.com</a>.</p>
-        </section>
-        <footer>
-            <p>© 2023 Dorit Talia Stein. All rights reserved.</p>
-        </footer>
+        </div>
+        <div class="content">
+            <nav>
+                <a href="#bio">About Me</a>
+                <a href="#research">Research Interests</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <section id="bio">
+                <h3>About Me</h3>
+                <p>Welcome to my academic website. I am currently pursuing a PhD in Population Health Sciences with a focus on Global Health Systems. My research interests include healthcare systems, epidemiology, and health policy analysis.</p>
+            </section>
+            <section id="research">
+                <h3>Research Interests</h3>
+                <p>My research interests encompass various aspects of healthcare and global health systems, including:</p>
+                <ul>
+                    <li>Healthcare Systems Analysis</li>
+                    <li>Epidemiology and Public Health</li>
+                    <li>Health Policy Evaluation</li>
+                    <li>Global Health Equity</li>
+                </ul>
+            </section>
+            <section id="publications">
+                <h3>Publications</h3>
+                <p>Here is a list of my recent publications:</p>
+                <ul>
+                    <li>Stein, D.T., et al. (Year). Title of the publication. <em>Journal Name</em>, Volume(Issue), Pages.</li>
+                    <li>Stein, D.T., et al. (Year). Title of the publication. <em>Journal Name</em>, Volume(Issue), Pages.</li>
+                    <!-- Add more publications if needed -->
+                </ul>
+            </section>
+            <section id="contact">
+                <h3>Contact Information</h3>
+                <p>If you have any questions, feel free to reach out to me via email: <a href="mailto:doritstein@example.com">doritstein@example.com</a>.</p>
+            </section>
+        </div>
     </div>
+    <footer>
+        <p>© 2023 Dorit Talia Stein. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
