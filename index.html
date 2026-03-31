@@ -1,194 +1,861 @@
-h<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dorit Talia Stein - Academic Website</title>
+    <meta name="description" content="Academic website of Dorit Talia Stein, PhD, a global health policy and systems researcher focused on health financing, decision science, and equitable health systems.">
+    <meta name="theme-color" content="#f4efe6">
+    <title>Dorit Talia Stein | Global Health Policy and Systems Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-            line-height: 1.6;
+        :root {
+            --page-bg: #f4efe6;
+            --panel-bg: rgba(255, 252, 248, 0.96);
+            --surface: rgba(255, 255, 255, 0.98);
+            --border: rgba(108, 86, 55, 0.18);
+            --border-strong: rgba(108, 86, 55, 0.28);
+            --text: #261d14;
+            --muted: #6d5f51;
+            --accent: #8b3f2f;
+            --shadow: 0 16px 34px rgba(57, 37, 18, 0.08);
+            --radius-xl: 20px;
+            --radius-lg: 14px;
+            --max-width: 1240px;
         }
 
-        .container {
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Source Sans 3", sans-serif;
+            color: var(--text);
+            line-height: 1.65;
+            background:
+                radial-gradient(circle at top left, rgba(139, 63, 47, 0.12), transparent 34%),
+                radial-gradient(circle at top right, rgba(30, 77, 91, 0.12), transparent 28%),
+                linear-gradient(180deg, #f7f1e9 0%, var(--page-bg) 52%, #efe7dc 100%);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .page-shell {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 24px 18px 56px;
+        }
+
+        .site-grid {
+            display: grid;
+            grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .profile-panel,
+        .section-card,
+        .top-nav {
+            background: var(--panel-bg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-panel {
+            position: sticky;
+            top: 24px;
+            padding: 22px;
+            border-radius: var(--radius-xl);
+        }
+
+        .photo-frame {
+            padding: 10px;
+            border-radius: 16px;
+            background: linear-gradient(160deg, rgba(139, 63, 47, 0.14), rgba(30, 77, 91, 0.08));
+            margin-bottom: 24px;
+        }
+
+        .profile-photo {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 12px;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .profile-name,
+        .hero-title,
+        .section-title {
+            font-family: "Source Serif 4", serif;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+
+        .profile-name {
+            margin: 0;
+            font-size: clamp(2.25rem, 4vw, 3.3rem);
+        }
+
+        .profile-role {
+            margin: 14px 0 0;
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .profile-summary {
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .button-row {
             display: flex;
             flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            gap: 12px;
+            margin: 26px 0 24px;
         }
 
-        .profile {
-            flex: 1 1 35%;
-            border-right: 1px solid #ddd;
-            padding: 20px;
-            box-sizing: border-box;
+        .button,
+        .button-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
         }
 
-        .content {
-            flex: 1 1 65%;
-            padding: 20px;
-            box-sizing: border-box;
+        .button {
+            background: var(--accent);
+            color: #fff9f5;
+            border: 1px solid transparent;
         }
 
-        .profile img {
-            border-radius: 50%;
-            width: 100%;
-            max-width: 200px;
-            height: auto;
+        .button:hover,
+        .button-secondary:hover,
+        .text-link:hover,
+        .link-pill:hover {
+            transform: translateY(-1px);
+        }
+
+        .button:focus-visible,
+        .button-secondary:focus-visible,
+        .text-link:focus-visible,
+        .nav-links a:focus-visible,
+        .link-pill:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .button-secondary {
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--text);
+            border: 1px solid var(--border-strong);
+        }
+
+        .profile-meta {
+            display: grid;
+            gap: 18px;
+            padding-top: 22px;
+            border-top: 1px solid var(--border);
+        }
+
+        .meta-block h2 {
+            margin: 0 0 10px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .focus-list,
+        .profile-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .focus-list li,
+        .profile-links li {
+            margin: 0 0 10px;
+        }
+
+        .focus-list li:last-child,
+        .profile-links li:last-child {
+            margin-bottom: 0;
+        }
+
+        .text-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .main-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 22px;
+            border-radius: 14px;
+        }
+
+        .site-title {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 16px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        .section-card {
+            border-radius: var(--radius-xl);
+            padding: 28px;
+        }
+
+        .hero-title {
+            margin: 0;
+            font-size: clamp(2rem, 3.3vw, 3rem);
+            max-width: 20ch;
+        }
+
+        .hero-lead {
+            margin: 16px 0 0;
+            max-width: 72ch;
+            font-size: 1.11rem;
+            color: var(--muted);
+        }
+
+        .hero-grid,
+        .card-grid,
+        .two-column-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .about-intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.9fr);
+            gap: 24px;
+            align-items: end;
+        }
+
+        .about-intro .hero-title,
+        .about-intro .hero-lead {
+            max-width: none;
+        }
+
+        .about-intro .hero-lead {
+            margin: 0;
+        }
+
+        .hero-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .card-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .two-column-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .info-chip,
+        .focus-card,
+        .timeline-card,
+        .education-card,
+        .contact-card {
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .info-chip,
+        .focus-card,
+        .timeline-card,
+        .education-card {
+            padding: 20px;
+        }
+
+        .info-chip span,
+        .card-label {
             display: block;
-            margin: 0 auto;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
         }
 
-        .profile h1 {
-            text-align: center;
-            font-size: 2.2em;
-            color: #222;
-            margin-top: 10px;
+        .info-chip strong,
+        .focus-card h3,
+        .timeline-card h3,
+        .education-card h3,
+        .contact-card h3 {
+            display: block;
+            margin: 0;
+            font-size: 1.15rem;
         }
 
-        .profile h2 {
-            text-align: center;
-            font-weight: normal;
-            color: #666;
-            font-size: 1.2em;
-            margin-top: 5px;
+        .info-chip p,
+        .focus-card p,
+        .timeline-card p,
+        .education-card p,
+        .contact-card p {
+            margin: 10px 0 0;
+            color: var(--muted);
         }
 
-        .profile h3 {
-            text-align: center;
-            font-weight: normal;
-            color: #999;
-            font-size: 1em;
-            margin-top: 2px;
+        .section-header {
+            display: grid;
+            grid-template-columns: minmax(260px, 0.95fr) minmax(320px, 1.35fr);
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
         }
 
-        .social-icons {
-            text-align: center;
-            margin-top: 20px;
+        .section-header.compact {
+            grid-template-columns: 1fr;
+            align-items: start;
         }
 
-        .social-icons a {
-            margin: 0 10px;
+        .section-title {
+            margin: 0;
+            font-size: clamp(1.75rem, 3vw, 2.35rem);
+        }
+
+        .section-intro {
+            margin: 0;
+            max-width: 60ch;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .timeline-card p + p,
+        .education-card p + p {
+            margin-top: 8px;
+        }
+
+        .contact-card {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .publication-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .uganda-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .publication-card,
+        .engagement-card {
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .publication-card h3,
+        .engagement-card h3 {
+            margin: 0;
+            font-size: 1.08rem;
+            line-height: 1.35;
+        }
+
+        .publication-card p,
+        .engagement-card p {
+            margin: 6px 0 0;
+            color: var(--muted);
+        }
+
+        .citation-line {
+            font-size: 0.92rem;
+            line-height: 1.3;
+        }
+
+        .journal-line {
+            font-size: 0.92rem;
+            line-height: 1.26;
+        }
+
+        .publication-card .resource-links {
+            margin-top: 8px;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .link-pill {
+            display: inline-flex;
+            align-items: center;
+            min-height: 32px;
+            padding: 0 12px;
+            border-radius: 10px;
             text-decoration: none;
-            display: inline-block;
+            font-weight: 700;
+            color: var(--accent);
+            background: rgba(139, 63, 47, 0.08);
+            border: 1px solid rgba(139, 63, 47, 0.14);
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
-        .social-icons img {
-            width: 30px;
-            height: 30px;
+        .link-pill:hover {
+            background: rgba(139, 63, 47, 0.14);
         }
 
-        nav {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #007acc;
-            font-size: 1em;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #005899;
-        }
-
-        section {
-            margin-bottom: 50px;
-        }
-
-        section h3 {
-            font-size: 1.4em;
-            color: #444;
-            border-bottom: 2px solid #007acc;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        section ul,
-        section p {
-            padding-left: 20px;
-        }
-
-        section ul li {
-            margin-bottom: 10px;
-        }
-
-        .highlight {
-            font-weight: bold;
-            color: #007acc; /* Matching the blue color */
+        .section-note {
+            margin: 18px 0 0;
+            color: var(--muted);
         }
 
         footer {
-            text-align: center;
-            padding: 20px 0;
-            color: #777;
-            border-top: 1px solid #ddd;
-            margin-top: 20px;
+            padding: 20px 6px 0;
+            text-align: right;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1040px) {
+            .site-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-panel {
+                position: static;
+            }
+
+            .hero-grid,
+            .card-grid,
+            .two-column-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .uganda-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .about-intro {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .page-shell {
+                padding: 16px 12px 34px;
+            }
+
+            .top-nav,
+            .contact-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-header {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .section-card,
+            .profile-panel {
+                padding: 20px;
+                border-radius: 18px;
+            }
+
+            .hero-grid,
+            .card-grid,
+            .two-column-grid,
+            .publication-list,
+            .uganda-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                max-width: none;
+            }
+
+            .button-row,
+            .contact-actions {
+                width: 100%;
+            }
+
+            .button,
+            .button-secondary {
+                flex: 1 1 180px;
+            }
+
+            footer {
+                text-align: left;
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="profile">
-            <!-- Reference the uploaded profile picture directly from the root -->
-            <img src="Headshot_2025.JPG" alt="Dorit Talia Stein">
-            <h1>Dorit Talia Stein, PhD</h1>
-            <h2>Research Fellow, Harvard Health Systems Innovation Lab</h2>
-            <h3></h3>
-            <div class="social-icons">
-                <!-- Add your actual profile links -->
-                <a href="https://x.com/dorittalia" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/twitter.png" alt="Twitter">
-                </a>
-                <a href="https://www.linkedin.com/in/doritstein/" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/dorittalia" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub">
-                </a>
-                <a href="https://scholar.google.com/citations?user=Aj2N1qYAAAAJ&hl=en" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/4a90e2/graduation-cap.png" alt="Google Scholar">
-                </a>
-            </div>
-            <div style="text-align: center; margin-top: 10px;">
-                <a href="Dorit Stein_CV_Sep2025.pdf" download>CV</a>
-            </div>
-        </div>
-        <div class="content">
-            <nav>
-                <a href="#bio">About Me</a>
-                <a href="Dorit Stein_CV_Sep2025.pdf" download>CV</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <section id="bio">
-                <h3>About Me</h3>
-                <p>I am a <span class="highlight">global health policy and systems researcher</span> and Research Fellow in the Harvard Health Systems Innovation Lab in the Department of Global Health and Population at Harvard T.H. Chan School of Public Health. In 2023-2024, I was a Visiting Fulbright Scholar in the Department of Health Policy Planning and Management at Makerere University School of Public Health.</p>
-                <p>My research interests are in the areas of <span class="highlight">global health economics and health financing</span>; <span class="highlight">health systems modeling</span>; <span class="highlight">health systems performance</span>; <span class="highlight">noncommunicable disease prevention</span>; and <span class="highlight">health equity</span>.</p>
-                <p><span class="highlight">In my research</span>, I apply decision science, economic, and epidemiological methods to inform health policy, priority setting, and resource allocation in both global and local settings. Ultimately, my goal is to generate high-quality and policy-relevant evidence to design efficient and equitable health systems in low- and middle-income countries.</p>
-                <p><span class="highlight">Before my PhD</span>, I worked providing technical assistance to country governments on health systems strengthening issues as part of a USAID-funded project. My work focused on generating evidence to inform health financing policies like strategic purchasing and provider payment, domestic resource mobilization for sustainable financing, and integration of the private sector into government-supported health insurance schemes in Indonesia, Nepal, Philippines, and Tanzania. I previously also worked in community development in Nepal and federal science policy in Washington DC.</p>
-                <p>I hold a <span class="highlight">PhD</span> in Population Health Sciences and Health Systems (with minors in economics and decision science) and <span class="highlight">Master of Science</span> in Global Health and Population, both from Harvard University. I graduated summa cum laude and Highest Departmental Honors with a <span class="highlight">Bachelor of Science</span> in Human Biology and Society and minor in Public Policy from the University of California, Los Angeles (UCLA). I grew up in San Diego, California and I love surfing, scuba diving, swimming, and generally being outside.</p>
-            </section>
-            <section id="contact">
-                <h3>Contact Information</h3>
-                <p>If you have any questions, feel free to reach out to me via email: <a href="mailto:doritstein@g.harvard.edu">doritstein@g.harvard.edu</a>.</p>
-            </section>
-        </div>
-    </div>
-    <footer>
-        <p>© 2025 Dorit Talia Stein. All rights reserved.</p>
-    </footer>
-</body>
+    <div class="page-shell">
+        <div class="site-grid">
+            <aside class="profile-panel">
+                <div class="photo-frame">
+                    <img class="profile-photo" src="Headshot_2025.JPG" alt="Portrait of Dorit Talia Stein">
+                </div>
+                <p class="eyebrow">Global Health Research</p>
+                <h1 class="profile-name">Dorit Talia Stein, PhD</h1>
+                <p class="profile-role">Postdoctoral Research Fellow, Harvard Health Systems Innovation Lab</p>
+                <p class="profile-summary">I study how health financing, decision science, and systems design can support more efficient and equitable health systems, especially in low- and middle-income countries.</p>
+                <div class="button-row">
+                    <a class="button" href="Dorit_Stein_CV_March_2026.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
+                    <a class="button-secondary" href="mailto:doritstein@g.harvard.edu">Email</a>
+                </div>
+                <div class="profile-meta">
+                    <div class="meta-block">
+                        <h2>Research Focus</h2>
+                        <ul class="focus-list">
+                            <li>Health financing and strategic purchasing</li>
+                            <li>Decision science and health systems modeling</li>
+                            <li>Noncommunicable disease prevention and health equity</li>
+                        </ul>
+                    </div>
+                    <div class="meta-block">
+                        <h2>Profiles</h2>
+                        <ul class="profile-links">
+                            <li><a class="text-link" href="https://scholar.google.com/citations?user=Aj2N1qYAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+                            <li><a class="text-link" href="https://www.linkedin.com/in/doritstein/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a class="text-link" href="https://github.com/dorittalia" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a class="text-link" href="https://x.com/dorittalia" target="_blank" rel="noopener noreferrer">X</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
 
+            <main class="main-column">
+                <nav class="top-nav" aria-label="Primary">
+                    <p class="site-title">Dorit Stein</p>
+                    <div class="nav-links">
+                        <a href="#research">Research</a>
+                        <a href="#publications">Publications</a>
+                        <a href="#uganda">Uganda</a>
+                        <a href="#education">Education</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </nav>
+
+                <section class="section-card" id="about">
+                    <p class="eyebrow">About</p>
+                    <div class="about-intro">
+                        <h2 class="hero-title">Studying how health systems perform and how policy can improve care delivery.</h2>
+                        <p class="hero-lead">I generate policy-relevant evidence on cardiovascular disease prevention, health financing, care quality, and policy implementation in low- and middle-income countries using decision science, economics, epidemiology, and health systems modeling.</p>
+                    </div>
+                    <div class="hero-grid">
+                        <div class="info-chip">
+                            <span>Current Appointment</span>
+                            <strong>Harvard Health Systems Innovation Lab</strong>
+                            <p>Postdoctoral research on health system performance, policy design, and care delivery.</p>
+                        </div>
+                        <div class="info-chip">
+                            <span>Recent Appointment</span>
+                            <strong>Fulbright Scholar, 2023-2024</strong>
+                            <p>Visiting scholar in the Department of Health Policy Planning and Management at Makerere University School of Public Health.</p>
+                        </div>
+                        <div class="info-chip">
+                            <span>Research Approach</span>
+                            <strong>Quantitative and participatory methods</strong>
+                            <p>Combining modeling, empirical analysis, and stakeholder engagement to support decision-making.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-card" id="research">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Research</p>
+                            <h2 class="section-title">Core areas of work</h2>
+                        </div>
+                        <p class="section-intro">My research spans the financing and delivery of health services, the quantitative tools used to evaluate system performance, and the equity implications of policy choices.</p>
+                    </div>
+                    <div class="card-grid">
+                        <article class="focus-card">
+                            <span class="card-label">Health Financing</span>
+                            <h3>Financing policy and strategic purchasing</h3>
+                            <p>I study how payment systems, domestic resource mobilization, and purchasing arrangements can strengthen health systems and improve accountability.</p>
+                        </article>
+                        <article class="focus-card">
+                            <span class="card-label">Decision Science</span>
+                            <h3>Priority setting and systems modeling</h3>
+                            <p>I use decision-science, economic, and epidemiological methods to inform priority setting, resource allocation, and long-term health system planning.</p>
+                        </article>
+                        <article class="focus-card">
+                            <span class="card-label">Equity</span>
+                            <h3>Noncommunicable disease prevention and health equity</h3>
+                            <p>I examine how health policy can better respond to chronic disease burdens while preserving fairness across populations and settings.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section-card" id="publications">
+                    <div class="section-header compact">
+                        <div>
+                            <p class="eyebrow">Publications</p>
+                            <h2 class="section-title">Selected publications</h2>
+                        </div>
+                    </div>
+                    <div class="publication-list">
+                        <article class="publication-card">
+                            <span class="card-label">Nature Medicine | 2024</span>
+                            <h3>Hypertension care cascades and reducing inequities in cardiovascular disease in low- and middle-income countries</h3>
+                            <p class="citation-line">Stein, D. T., Reitsma, M. B., Geldsetzer, P., Agoudavi, K., Aryal, K. K., Bahendeka, S., et al.</p>
+                            <p class="journal-line"><em>Nature Medicine</em>, 30(2), 414-423.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://www.nature.com/articles/s41591-023-02769-8" target="_blank" rel="noopener noreferrer">Article</a>
+                                <a class="link-pill" href="papers/2024-nature-medicine-cvd-inequities.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                                <a class="link-pill" href="papers/2024-nature-medicine-cvd-inequities-supplementary-information.pdf" target="_blank" rel="noopener noreferrer">Supplement</a>
+                                <a class="link-pill" href="https://chds.hsph.harvard.edu/reducing-cardiovascular-disease-inequities/" target="_blank" rel="noopener noreferrer">CHDS News</a>
+                                <a class="link-pill" href="https://popcenter.harvard.edu/blog/2024/02/09/how-can-socioeconomic-based-cardiovascular-disease-disparities-in-low-and-middle-income-countries-be-reduced/" target="_blank" rel="noopener noreferrer">Pop Center</a>
+                            </div>
+                        </article>
+                        <article class="publication-card">
+                            <span class="card-label">BMJ Public Health | 2025</span>
+                            <h3>Exploring district implementation of national guidelines and maintenance of essential health services during the COVID-19 pandemic in Uganda</h3>
+                            <p class="citation-line">Stein, D. T., Ssengasa, A., Olaro, C., Sabiiti, J. N., Kyaddondo, B., Mbabazi, C., Ssengooba, F., &amp; Makumbi, F. E.</p>
+                            <p class="journal-line"><em>BMJ Public Health</em>, 3(1), e001813.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://bmjpublichealth.bmj.com/content/3/1/e001813" target="_blank" rel="noopener noreferrer">Article</a>
+                                <a class="link-pill" href="papers/2025-bmj-public-health-essential-health-services-uganda.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </div>
+                        </article>
+                        <article class="publication-card">
+                            <span class="card-label">World Medical &amp; Health Policy | 2023</span>
+                            <h3>Attributes of funding flows and quality of maternal health services in a mixed provider payment system: A cross-sectional survey of 108 healthcare providers in Indonesia</h3>
+                            <p class="citation-line">Stein, D. T., Rakhmani, M. F., Dutta, A., &amp; Ugal, J. I.</p>
+                            <p class="journal-line"><em>World Medical &amp; Health Policy</em>, 15(2), 179-193.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/wmh3.545" target="_blank" rel="noopener noreferrer">Article</a>
+                                <a class="link-pill" href="papers/2023-world-medical-and-health-policy-indonesia-maternal-health-funding-flows.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </div>
+                        </article>
+                        <article class="publication-card">
+                            <span class="card-label">Health Affairs | 2021</span>
+                            <h3>Decline in new starts of psychotropic medications during the COVID-19 pandemic</h3>
+                            <p class="citation-line">Nason, I., Stein, D. T., Frank, R. G., &amp; Stein, M. B.</p>
+                            <p class="journal-line"><em>Health Affairs</em>, 40(6), 904-909.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://www.healthaffairs.org/doi/full/10.1377/hlthaff.2021.00028" target="_blank" rel="noopener noreferrer">Article</a>
+                                <a class="link-pill" href="papers/2021-health-affairs-psychotropic-medications-covid-19.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </div>
+                        </article>
+                        <article class="publication-card">
+                            <span class="card-label">Health Policy and Planning | 2021</span>
+                            <h3>Bypassing high-quality maternity facilities: evidence from pregnant women in peri-urban Nairobi</h3>
+                            <p class="citation-line">Stein, D. T., Golub, G., Rothschild, C. W., Nyakora, G., Cohen, J., &amp; McConnell, M.</p>
+                            <p class="journal-line"><em>Health Policy and Planning</em>, 36(1), 84-92.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://academic.oup.com/heapol/article/36/1/84/6017193" target="_blank" rel="noopener noreferrer">Article</a>
+                                <a class="link-pill" href="papers/2021-health-policy-and-planning-bypassing-maternity-facilities.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </div>
+                        </article>
+                        <article class="publication-card">
+                            <span class="card-label">BMJ Open Diabetes Research &amp; Care | 2020</span>
+                            <h3>Change in clinical knowledge of diabetes among primary healthcare providers in Indonesia: repeated cross-sectional survey of 105 primary healthcare facilities</h3>
+                            <p class="citation-line">Stein, D. T., Sudharsanan, N., Dewi, S., Manne-Goehler, J., Witoelar, F., &amp; Geldsetzer, P.</p>
+                            <p class="journal-line"><em>BMJ Open Diabetes Research &amp; Care</em>, 8(1), e001415.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://drc.bmj.com/content/8/1/e001415" target="_blank" rel="noopener noreferrer">Article</a>
+                                <a class="link-pill" href="papers/2020-bmj-open-diabetes-indonesia-clinical-knowledge.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </div>
+                        </article>
+                    </div>
+                    <p class="section-note">For a fuller publication list, see <a class="text-link" href="https://scholar.google.com/citations?user=Aj2N1qYAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
+                </section>
+
+                <section class="section-card" id="experience">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Experience</p>
+                            <h2 class="section-title">Research and policy background</h2>
+                        </div>
+                        <p class="section-intro">My work has combined academic research with applied policy support for governments and public institutions.</p>
+                    </div>
+                    <div class="two-column-grid">
+                        <article class="timeline-card">
+                            <span class="card-label">Applied Health Systems Work</span>
+                            <h3>Technical assistance and policy support</h3>
+                            <p>Before my PhD, I worked on USAID-funded health systems strengthening efforts, with a focus on strategic purchasing, provider payment, and domestic resource mobilization.</p>
+                        </article>
+                        <article class="timeline-card">
+                            <span class="card-label">Uganda Engagement</span>
+                            <h3>Participatory research and policy dialogue</h3>
+                            <p>In Uganda, I have worked with policymakers, technical staff, and other stakeholders to co-design research on national health insurance and health system performance.</p>
+                        </article>
+                        <article class="timeline-card">
+                            <span class="card-label">Country Experience</span>
+                            <h3>Regional and cross-country engagement</h3>
+                            <p>My work has included collaboration related to health financing and insurance policy in Indonesia, Nepal, the Philippines, Tanzania, and Uganda.</p>
+                        </article>
+                        <article class="timeline-card">
+                            <span class="card-label">Earlier Background</span>
+                            <h3>Community development and science policy</h3>
+                            <p>Earlier in my career, I also worked in community development in Nepal and in federal science policy in Washington, DC.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section-card" id="uganda">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Uganda</p>
+                            <h2 class="section-title">Uganda research and policy work</h2>
+                        </div>
+                        <p class="section-intro">Selected public-facing work from my Uganda research, including participatory design on national health insurance and dissemination around the policy dialogue process.</p>
+                    </div>
+                    <div class="uganda-grid">
+                        <article class="engagement-card">
+                            <span class="card-label">Blog</span>
+                            <h3>Generating evidence for national health insurance design in Uganda</h3>
+                            <p>Harvard Kennedy School Center for International Development.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://www.hks.harvard.edu/centers/cid/voices/generating-evidence-national-health-insurance-design-uganda-participatory-health" target="_blank" rel="noopener noreferrer">Read</a>
+                            </div>
+                        </article>
+                        <article class="engagement-card">
+                            <span class="card-label">Policy Dialogue</span>
+                            <h3>Student story on the dissertation policy dialogue</h3>
+                            <p>Harvard T.H. Chan School of Public Health coverage of the policy dialogue event.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://hsph.harvard.edu/global-health-population/news/student-story-dorit-stein-wraps-up-dissertation-project-with-policy-dialogue/" target="_blank" rel="noopener noreferrer">Read</a>
+                            </div>
+                        </article>
+                        <article class="engagement-card">
+                            <span class="card-label">Media Coverage</span>
+                            <h3>National insurance scheme should focus on NCDs, experts say</h3>
+                            <p>Coverage in the Daily Monitor related to the first workshop in Uganda.</p>
+                            <div class="resource-links">
+                                <a class="link-pill" href="https://www.monitor.co.ug/uganda/news/national/-national-insurance-scheme-should-focus-on-ncds-experts-say--4510162" target="_blank" rel="noopener noreferrer">Read</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section-card" id="education">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Education</p>
+                            <h2 class="section-title">Training</h2>
+                        </div>
+                        <p class="section-intro">My training combines population health sciences, health systems research, economics, and public policy.</p>
+                    </div>
+                    <div class="two-column-grid">
+                        <article class="education-card">
+                            <span class="card-label">Harvard University</span>
+                            <h3>PhD in Population Health Sciences and Health Systems</h3>
+                            <p>Minor fields in economics and decision science.</p>
+                        </article>
+                        <article class="education-card">
+                            <span class="card-label">Harvard University</span>
+                            <h3>Master of Science in Global Health and Population</h3>
+                            <p>Graduate training in global health, health policy, and quantitative methods.</p>
+                        </article>
+                        <article class="education-card">
+                            <span class="card-label">UCLA</span>
+                            <h3>BS in Human Biology and Society</h3>
+                            <p>Graduated summa cum laude with Highest Departmental Honors.</p>
+                        </article>
+                        <article class="education-card">
+                            <span class="card-label">UCLA</span>
+                            <h3>Minor in Public Policy</h3>
+                            <p>Undergraduate training grounding scientific work in policy analysis and implementation.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section-card" id="contact">
+                    <div class="contact-card">
+                        <div>
+                            <p class="eyebrow">Contact</p>
+                            <h3>Open to research collaboration and conversation.</h3>
+                            <p>The easiest way to reach me is by email. You can also find recent work and updates through my public profiles.</p>
+                        </div>
+                        <div class="contact-actions">
+                            <a class="button" href="mailto:doritstein@g.harvard.edu">Email Dorit</a>
+                            <a class="button-secondary" href="https://scholar.google.com/citations?user=Aj2N1qYAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <footer>
+            <p>&copy; 2026 Dorit Talia Stein</p>
+        </footer>
+    </div>
+</body>
 </html>
